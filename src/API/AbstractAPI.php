@@ -43,7 +43,7 @@ abstract class AbstractAPI
      */
     public function __call(string $method, array $arguments): HttpResponse
     {
-        if (! in_array($method, $this->methods, true)) {
+        if (!in_array($method, $this->methods, true)) {
             throw new \BadMethodCallException("Method [{$method}] does not exist.");
         }
 
