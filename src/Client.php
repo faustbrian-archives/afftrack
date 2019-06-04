@@ -5,15 +5,15 @@ declare(strict_types=1);
 /*
  * This file is part of Afftrack PHP Client.
  *
- * (c) Brian Faust <hello@brianfaust.me>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Afftrack;
+namespace Plients\Afftrack;
 
-use BrianFaust\Http\Http;
+use Plients\Http\Http;
 
 class Client
 {
@@ -44,13 +44,13 @@ class Client
      *
      * @param string $name
      *
-     * @return \BrianFaust\Afftrack\API\AbstractAPI
+     * @return \Plients\Afftrack\API\AbstractAPI
      */
     public function api(string $name): API\AbstractAPI
     {
         $client = Http::withBaseUri("http://{$this->username}.afftrack.com/apiv4/?key={$this->key}&format=json");
 
-        $class = "BrianFaust\\Afftrack\\API\\{$name}";
+        $class = "Plients\\Afftrack\\API\\{$name}";
 
         return new $class($client);
     }
